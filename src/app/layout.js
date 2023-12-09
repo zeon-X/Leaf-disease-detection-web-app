@@ -5,7 +5,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
   title: "Leaf disease detection app",
-  description: "Crop Classification App with Next.js and Tailwind CSS",
+  description: "Crop disease Classification App",
 };
 
 export default function RootLayout({ children }) {

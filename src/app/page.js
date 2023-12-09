@@ -1,4 +1,4 @@
-import CropForm from "@/component/CropForm";
+import CropForm from "@/app/CropForm";
 
 let imgLink1 = "https://images.unsplash.com/photo-1628352081506-83c43123ed6d";
 let imgLink2 =
@@ -13,7 +13,7 @@ export default function Home() {
             backgroundImage: `url(${imgLink1})`,
             backgroundRepeat: "no-repeat",
           }}
-          className="h-screen min-h-[866px] bg-cover bg-center  "
+          className="h-full min-h-[866px] bg-cover bg-center  "
         >
           <div className="max-w-[1080px] mx-auto p-12">
             <div

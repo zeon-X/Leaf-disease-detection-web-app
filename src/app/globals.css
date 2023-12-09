@@ -2,7 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+body{
+    margin: 0;
+}
+
 
 .label-text{
+    color: white;
+}
+p, h1,h2,h3,h4,h5, button{
     color: white;
 }

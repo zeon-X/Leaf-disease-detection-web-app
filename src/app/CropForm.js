@@ -4,6 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import Image from "next/image"; // Import next/image
 import { imgpreview } from "../../public/assets";
+import Swal from "sweetalert2";
 
 const CropForm = () => {
   const [selectedCrop, setSelectedCrop] = useState(null);
@@ -29,6 +30,7 @@ const CropForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    Swal.showLoading();
 
     let API_ROOT = "http://localhost:8000";
 
@@ -52,11 +54,12 @@ const CropForm = () => {
       console.error("Error submitting the form:", error);
       alert("An error occurred while submitting the form.");
     }
+    Swal.close();
   };
 
   return (
     <div className="">
-      <form onSubmit={handleSubmit} className="p-4">
+      <form onSubmit={handleSubmit} className="">
         <div className="form-control w-full max-w-sm mb-2">
           <label className="label">
             <span className="label-text"> Select Crop:</span>
