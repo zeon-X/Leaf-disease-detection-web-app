@@ -49,6 +49,7 @@ const CropForm = () => {
       setPredictionResult({
         class: res?.data?.class,
         confidence: res?.data?.confidence,
+        class_confidences: res?.data?.class_confidences,
       });
     } catch (error) {
       console.error("Error submitting the form:", error);
@@ -58,7 +59,7 @@ const CropForm = () => {
   };
 
   return (
-    <div className="">
+    <div className="flex flex-wrap gap-8">
       <form onSubmit={handleSubmit} className="">
         <div className="form-control w-full max-w-sm mb-2">
           <label className="label">
@@ -120,17 +121,36 @@ const CropForm = () => {
       </form>
 
       {/* Display prediction result */}
-      {predictionResult && (
-        <div className="my-4 ">
-          <h2 className="text-lg text-[#fff] font-semibold mb-2">
-            Prediction Result:
-          </h2>
-          <p className="text-[#fff]">Class: {predictionResult?.class}</p>
-          <p className="text-[#fff]">
-            Confidence: {Math.floor(predictionResult?.confidence * 100)}%
-          </p>
-        </div>
-      )}
+      <div>
+        {predictionResult && (
+          <>
+            <div className="my-4 ">
+              <h2 className="text-lg text-[#fff] font-semibold mb-2">
+                Prediction Result:
+              </h2>
+              <p className="text-[#fff]">
+                Class: {predictionResult?.class} | Confidence:{" "}
+                {Math.floor(predictionResult?.confidence * 100)}%
+              </p>
+            </div>
+            <div className="my-4 ">
+              <h2 className="text-lg text-[#fff] font-semibold mb-2">
+                Other Results:
+              </h2>
+              {predictionResult?.class_confidences?.map((x, ind) => {
+                return (
+                  <>
+                    <p className="text-[#fff]">
+                      Class: {x?.class} | Confidence:{" "}
+                      {Math.floor(x?.confidence * 100)}%
+                    </p>
+                  </>
+                );
+              })}
+            </div>
+          </>
+        )}
+      </div>
     </div>
   );
 };

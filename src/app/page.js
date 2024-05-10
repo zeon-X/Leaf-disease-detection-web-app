@@ -2,7 +2,7 @@ import CropForm from "@/app/CropForm";
 
 let imgLink1 = "https://images.unsplash.com/photo-1628352081506-83c43123ed6d";
 let imgLink2 =
-  "https://images.pexels.com/photos/12903472/pexels-photo-12903472.jpeg";
+  "https://www.shutterstock.com/image-photo/weather-station-corn-field-5g-600nw-2292504169.jpg";
 
 export default function Home() {
   return (
@@ -10,7 +10,7 @@ export default function Home() {
       <main>
         <section
           style={{
-            backgroundImage: `url(${imgLink1})`,
+            backgroundImage: `url(${imgLink2})`,
             backgroundRepeat: "no-repeat",
           }}
           className="h-full min-h-[866px] bg-cover bg-center  "
